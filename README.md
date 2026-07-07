@@ -122,7 +122,7 @@ Permite:
 
 Incluye:
 
-- cargar modelos entrenados sin ranking
+- cargar modelos entrenados con ranking
 - visualizar reconstrucciones
 - generar mapas de calor secuenciales
 - comparar distintas tasas de compresión
