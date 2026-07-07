@@ -22,8 +22,6 @@ Para ello se incorporan distintas técnicas de regularización y selección inte
 📦 TFG
 │
 ├── 📂 datasets/
-│   └── DIV2K_train_HR/
-│   └── DIV2K_valid_HR/
 │
 ├── 📂 entrenamiento/
 │   ├── Codigo_TFG_MSE.ipynb
@@ -53,11 +51,11 @@ Para ello se incorporan distintas técnicas de regularización y selección inte
 
 ## 📂 `datasets/`
 
-Esta carpeta contiene los conjuntos de datos utilizados durante el proyecto.
+Conjuntos de datos utilizados durante el proyecto.
 
 Se utilizan los siguientes datasets:
 
-- **DIV2K (High Resolution)** → entrenamiento y test.
+- **DIV2K (High Resolution)** → entrenamiento y test (High Resolution Images de Train Data y Validation Data). Disponibles en: https://data.vision.ee.ethz.ch/cvl/DIV2K/
 
 ---
 
