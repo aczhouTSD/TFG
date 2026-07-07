@@ -19,26 +19,31 @@ Para ello se incorporan distintas técnicas de regularización y selección inte
 # 📂 Estructura del repositorio
 
 ```text
-📦 TFG-Compresión-Adaptativa
+📦 TFG
 │
 ├── 📂 datasets/
-│   └── README_datasets.md
+│   └── DIV2K_train_HR/
+│   └── DIV2K_valid_HR/
 │
 ├── 📂 entrenamiento/
-│   ├── 1_entrenamiento_basico.ipynb
-│   ├── 2_entrenamiento_regularizado.ipynb
-│   └── 3_entrenamiento_ranking_empirico.ipynb
+│   ├── Codigo_TFG_MSE.ipynb
+│   ├── Codigo_TFG_MSE_H_S.ipynb
+│   └── Codigo_TFG_MSE_H_S_DataDriven.ipynb
 │
 ├── 📂 evaluacion/
-│   ├── 1_evaluar_sin_ranking.ipynb
-│   └── 2_evaluar_con_ranking_y_medias.ipynb
+│   ├── Modelo_Base.ipynb
+│   └── Modelo_Ranking_Empírico.ipynb
 │
-├── 📂 pesos_modelos/
-│   ├── modelo_secuencial_mse.pth
-│   ├── modelo_adaptativo_final.pth
-│   └── ranking_empirico.pt
+├── 📂 modelos/
+│   ├── CHENG2020_Q3_MSE_001_05.pth
+│   ├── CHENG2020_Q3_MSE_0018_1.pth
+│   ├── CHENG2020_Q3_MSE_0018_1_H_01_S_005.pth
+│   ├── CHENG2020_Q3_MSE_0018_1_H_01_S_005_DataDriven.pth
+│   ├── CHENG2020_Q3_MS-SSIM_2o4_12.pth
+│   ├── CHENG2020_Q3_MS-SSIM_2o4_12_H_01_S_005.pth
+│   ├── CHENG2020_Q3_MS-SSIM_2o4_12_H_01_S_005_DataDriven.pth
+│   └── CHENG2020_Q3_MS-SSIM_5_130.pth
 │
-├── requirements.txt
 └── README.md
 ```
 
@@ -48,9 +53,7 @@ Para ello se incorporan distintas técnicas de regularización y selección inte
 
 ## 📂 `datasets/`
 
-Esta carpeta contiene las instrucciones necesarias para descargar los conjuntos de datos utilizados durante el proyecto.
-
-Debido a las limitaciones de tamaño de GitHub, las imágenes originales no se incluyen en el repositorio.
+Esta carpeta contiene los conjuntos de datos utilizados durante el proyecto.
 
 Se utilizan los siguientes datasets:
 
@@ -62,7 +65,7 @@ Se utilizan los siguientes datasets:
 
 Incluye todos los cuadernos utilizados durante el desarrollo del modelo, mostrando la evolución de la arquitectura.
 
-### 📘 1. `1_entrenamiento_basico.ipynb`
+### 📘 1. `Codigo_TFG_MSE.ipynb`
 
 Implementación inicial basada en un descarte secuencial de canales latentes.
 
@@ -74,7 +77,7 @@ Características:
 
 ---
 
-### 📘 2. `2_entrenamiento_regularizado.ipynb`
+### 📘 2. `Codigo_TFG_MSE_H_S.ipynb`
 
 Versión mejorada incorporando una función de pérdida personalizada.
 
@@ -86,7 +89,7 @@ Se añaden:
 
 ---
 
-### 📘 3. `3_entrenamiento_ranking_empirico.ipynb`
+### 📘 3. `Codigo_TFG_MSE_H_S_DataDriven.ipynb`
 
 Versión definitiva presentada en el TFG.
 
@@ -103,42 +106,33 @@ Implementa:
 
 Cuadernos destinados a evaluar los modelos entrenados y generar las figuras incluidas en la memoria.
 
-### 📙 `1_evaluar_sin_ranking.ipynb`
+### 📙 `Modelo_Base.ipynb`
 
 Permite:
 
-- cargar modelos entrenados
+- cargar modelos entrenados sin ranking
 - visualizar reconstrucciones
 - generar mapas de calor secuenciales
 - comparar distintas tasas de compresión
+- generación de curvas Rate-Distortion
 
 ---
 
-### 📙 `2_evaluar_con_ranking_y_medias.ipynb`
-
-Cuaderno definitivo de evaluación.
+### 📙 `Modelo_Ranking_Empírico.ipynb`
 
 Incluye:
 
-- carga del ranking empírico
-- enmascaramiento adaptativo
-- inyección de medias en canales inactivos
-- cálculo correcto del bitrate
-- visualización de mapas de calor adaptativos
+- cargar modelos entrenados sin ranking
+- visualizar reconstrucciones
+- generar mapas de calor secuenciales
+- comparar distintas tasas de compresión
 - generación de curvas Rate-Distortion
 
 ---
 
 ## 📂 `pesos_modelos/`
 
-Contiene los pesos entrenados utilizados durante el desarrollo del proyecto.
-
-| Archivo | Descripción |
-|---------|-------------|
-| `modelo_secuencial_mse.pth` | Modelo entrenado mediante descarte secuencial |
-| `modelo_adaptativo_final.pth` | Modelo adaptativo final presentado en el TFG |
-| `ranking_empirico.pt` | Ranking estadístico de importancia de canales |
-
+Contiene los pesos entrenados utilizados durante el desarrollo del proyecto. Donde la nomenclatura del fichero es "CHENG_ANCHOR_Q3_XXXX", en el que las "XXXX", son los hiperparámetros usados.
 
 -```
 
